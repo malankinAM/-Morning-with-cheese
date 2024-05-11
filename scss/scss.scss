@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+$rotateLetter: -60;
+$margins: (1:100,2:73,3:53,4:33,5:23,6:3,7:0,8:-4,9:-4,10:0,11:3,12:23,13:33.5,14:53,15:73,16:100);
+$position3d: rotate3d(3, -1, 1, 69deg);
+$cheese-top-pos: -24;
+$cheese-left-pos: -66;
+$holes-top-pos: -13;
+$holes-left-pos: -71;
+
+.container{top:-400px;}
+
+.wrapper {
+ display: flex;
+ justify-content: center;
+ align-items:center;
+ height:95vh;
+ background: #8b4d06;
+
+ .container{
+  position: relative;
+  display:block;
+  transform: scale(2);
+
+  .bread {
+   background-color: #c90;
+   width: 100px;
+   height: 60px;
+   border:3px solid #754600;
+   box-sizing:border-box;
+   box-shadow: 0 0 10px 5px inset #9e6208,
+               0.5px 1px 0px 0px #754600,
+               1px 2px 0px 0px #754600,
+               1.5px 3px 0px 0px #754600,
+               2px 4px 0px 0px #754600,
+               2.5px 5px 0px 0px #754600,
+               3px 6px 0px 0px #754600,
+               3.5px 7px 0px 0px #754600,
+               4px 8px 0px 0px #754600,
+               4.5px 9px 0px 0px #754600,
+               5px 10px 0px 0px #754600,
+               5.5px 11px 0px 0px #754600,
+               6px 12px 0px 0px #754600,
+               6.5px 13px 0px 0px #754600,
+               7px 14px 0px 0px #754600,
+               7.5px 15px 0px 0px #754600,
+               8px 16px 0px 0px #754600,
+               8.5px 17px 0px 0px #754600,
+               9px 18px 0px 0px #754600,
+               9.5px 19px 0px 0px #754600,
+               10px 20px 0px 0px #754600;
+   border-radius: 5px 5px;
+   transform: $position3d;
+  }
+  
+  .upper {
+   width: 25px;
+   height: 70px;
+   background-color: #c90;
+   position: absolute;
+   top: -10px;
+   left: -10px;
+   border-radius: 10px 10px;
+   z-index: 100;
+   border:3px solid #754600;
+   border-right: none;
+   box-shadow: 3px 3px 5px inset #9e6208;
+  }
+  
+ .upper-s {
+  position: absolute;
+  z-index:-1;
+  top: -11px;
+  left: -2px;
+  box-shadow: 0px 1px 0px 0px #754600,
+              1px 2px 0px 0px #754600,
+              1.5px 3px 0px 0px #754600,
+              2px 4px 0px 0px #754600,
+              2.5px 5px 0px 0px #754600,
+              3px 6px 0px 0px #754600,
+              3.5px 7px 0px 0px #754600,
+              4px 8px 0px 0px #754600,
+              4.5px 9px 0px 0px #754600,
+              5px 10px 0px 0px #754600,
+              5.5px 11px 0px 0px #754600,
+              6px 12px 0px 0px #754600,
+              6.5px 13px 0px 0px #754600,
+              7px 14px 0px 0px #754600,
+              7.5px 15px 0px 0px #754600,
+              8px 16px 0px 0px #754600,
+              8.5px 17px 0px 0px #754600,
+              9px 18px 0px 0px #754600,
+              9.5px 19px 0px 0px #754600;
+   transform: $position3d;
+  }
+ }
+}
+.container.c2{
+  transform: scale(2);
+ 
+ .cheese {
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 80px solid #f1bf00;
+  position: absolute;
+  top: #{$cheese-top-pos}px;
+  left: #{$cheese-left-pos}px;
+  transform: $position3d;
+ }
+
+ @for $i from 1 through 12 {
+   .cheese:nth-of-type(#{$i}) {
+    top: #{($cheese-top-pos - $i)}px;
+    left: #{($cheese-left-pos - $i/5)}px;
+
+    @if $i == 12 {
+     border-left-color: #ffd400;
+    }
+   }
+ }
+}
+
+.holes {
+ position:absolute;
+ width:80px;
+ height:25px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ top: #{$holes-top-pos}px;
+ left: #{$holes-left-pos}px;
+
+ .hole {
+  position: relative;
+  background-color: #d49f00;
+  width: 5px;
+  height: 5px;
+  display: block;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 2px -1px 0 inset #ead943;
+ }
+
+ .hole:nth-child(1){
+  left: 17px;
+  top:-12px;
+  background-color: #fff;
+  box-shadow: 1px 2px 0px inset #ead943;
+ }
+
+ .hole:nth-child(2){
+  top: -4px;
+  left: -5px;
+  box-shadow: 1px 2px 0px inset #ead943;
+  background-color: #ccab09;
+ }
+ .hole:nth-child(3){
+  top: -6px;
+  left: -4px;
+  background-color: #cdf5ff;
+  box-shadow: 1px 2px 0px inset #ead943;
+  animation: cheeseUpHole 3s 2.5s ease-in 1 forwards;
+ }
+ .hole:nth-child(4){
+  top: 3px;
+  left: -4px;
+  box-shadow: 0px 2px 0 inset #ead943;
+ }
+ .hole:nth-child(5){
+  top: -6px;
+  left: 5px;
+  background-color: #b80;
+  box-shadow: 2px 2px 0px inset #ead943;
+  animation: cheeseEdgeHoles 2s 2.5s ease-in 1 forwards; 
+ }
+ .hole:nth-child(6){
+  top: -7px;
+  left: 7px;
+  box-shadow: 1px 2px 0px inset #ead943;
+  background-color: #ccab09;
+ }
+ .hole:nth-child(7){
+  top: -7px;
+  left: 6px;
+  box-shadow: 1px 2px 0px inset #ead943;
+  background-color: #ccab09;
+ }
+ .hole:nth-child(8){
+  top: 0;
+  left: 13px;
+  background-color:#b80;
+  box-shadow: 2px -1px 0 inset #ead943;
+  animation: cheeseEdgeHoles 2s 2.5s ease-in 1 forwards; 
+ }
+ .hole:nth-child(9){
+  top: -3px;
+  left: -3px;
+  background-color: #b80;
+  box-shadow: 2px -1px 0 inset #ead943;
+  animation: cheeseEdgeHoles 2s 2.5s ease-in 1 forwards;  
+ }
+ .hole:nth-child(10){
+  top: -6px;
+  left: -7px; 
+ }
+ .hole:nth-child(11){
+  top: -4px;
+  left: 0px; 
+ }
+ .hole:nth-child(12){
+  top: -3px;
+  left: 3px; 
+  background-color:#b80;
+  box-shadow: 3px -1px 0 inset #ead943;
+  animation: cheeseEdgeHoles 2s 2.5s ease-in 1 forwards; 
+ }
+ .hole:nth-child(13){
+  top: -8px;
+  left: 7px; 
+ }
+ .hole:nth-child(14){
+  top: -10px;
+  left: 5px; 
+ }
+ .hole:nth-child(15){
+  top: -7px;
+  left: 11px;
+ }
+ .hole:nth-child(16){
+  top: -7px;
+  left: 12px; 
+  background-color: #b80;
+  box-shadow: 2px -1px 0 inset #ead943;
+  animation: cheeseEdgeHoles 2s 2.5s ease-in 1 forwards; 
+ }
+} 
+
+.c1{animation: dropSandwich 2s 2s ease-in 1 forwards;}
+.c2{animation: dropSandwich 2s 2.5s ease-in 1 forwards;}
+
+@keyframes dropSandwich {
+ 0%{top:-400px;}
+ 80%{top:0px;}
+ 90%{top:-10px;}
+ 100%{top:0px;}
+}
+@keyframes cheeseUpHole {
+ 0%{background-color:#fff;}
+ 80%{background-color:#cdf5ff;}
+ 90%{background-color:#fff;}
+ 100%{background-color:#cdf5ff;}
+}
+
+@keyframes cheeseEdgeHoles {
+ 0%{background-color:#fff;}
+ 80%{background-color:#b80;}
+ 90%{background-color:#cdf5ff;}
+ 100%{background-color:#b80;}
+}
+
+.plate {
+ width:300px;
+ height:350px;
+ background-color: #0cf;
+ opacity:0.3;
+ border-radius:50%;
+ position:absolute;
+ transform:rotate3d(1, 0, 0, 69deg);
+ top:calc(50% - 160px);
+ display:flex;
+ justify-content:center;
+ align-items: center;
+ box-shadow: 0 0 3px 7px inset #000,
+             0 5px 3px #0cf,
+             0 25px 15px #000;
+ animation: servePlate 2s ease-in-out 1 forwards;
+ 
+ .inner-plate {
+  width:150px;
+  height:175px;
+  opacity:0.6;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 3px 9px 0 1px inset,
+              0 0 0 1px inset;
+ }
+}
+
+@keyframes servePlate {
+ from{margin-left:1200px;}
+ to{right:auto;}
+}
+
+
+.greeting-container {
+ position:absolute;
+ font-family: 'Dancing Script', cursive;
+ font-size: 3em;
+ color: #f1bf00;
+ display: flex;
+ justify-content: center;
+ top: calc(50% - 160px);
+ left: calc(50% - 245px);
+ 
+ .greet{
+  display: block;
+  position: relative;
+  margin: 0 5px;
+  opacity: 0;
+ }
+}
+@for $i from 1 through 16 {
+ .greet:nth-child(#{$i}) {
+  transform: rotate(#{$rotateLetter + ($i *7.5)}deg);
+  @if $i == 1{
+   animation: showLetter 0.5s 3.5 linear 1 forwards;
+  }
+  animation: showLetter 0.5s #{($i/5+3.5)}s linear 1 forwards;
+ }
+}
+
+@each $index,$margin in $margins {
+ .greet:nth-of-type(#{$index}) {
+  margin-top: #{$margin}px;
+ }
+}
+
+@keyframes showLetter {
+ from{
+  color: #f1bf00;
+  opacity:0;
+ }
+ to{
+  color:#e0dedb;
+  opacity:1;
+ }
+}
+
+@media(max-width:475px){
+            span{
+                        font-size: 36px;
+            }
+}
