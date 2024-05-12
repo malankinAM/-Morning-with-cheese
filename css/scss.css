@@ -625,5 +625,8 @@
 @media (max-width: 475px) {
   span {
     font-size: 32px;
+    
   }
+  .greeting-container{
+    font-size:2em:
 }
